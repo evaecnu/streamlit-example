@@ -8,5 +8,5 @@ import streamlit as st
 
 with st.form("daban",clear_on_submit=True):
    choice= st.selectbox('if the xpy in blacklist?',('yes','no'))
-    st.write('youselect,choice')
+   st.write('youselect,choice')
     
