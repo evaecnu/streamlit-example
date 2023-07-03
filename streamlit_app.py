@@ -9,6 +9,7 @@ data = {'group':['v','b','o','b','v','o','b','v','b','o','v', 'b','o','b','v','o
         'Live': ['A','A','C','B','A','C','B','A','B','A','A','C', 'B','A','C','B','A','B','A','B','C', 'B','A','C','B','A','B','A','A','C','A','C','B','A','B','A','B','C','B','A','C','B','A','B','A','A','C','B','A','C','B'] }
 df= pd.DataFrame(data)
 # print(df)
-df1=df.groupby(['group','Live'], as_index=False)
+
+df1=df.groupby(['group','Live'])['group','Live'].count()
 print(df1)
 st.dataframe(df)
