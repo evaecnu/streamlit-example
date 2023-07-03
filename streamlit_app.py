@@ -10,7 +10,7 @@ data = {'group':['v','b','o','b','v','o','b','v','b','o','v', 'b','o','b','v','o
 df= pd.DataFrame(data)
 # print(df)
 
-df1=df.groupby(df.columns.tolist(), as_index=False).size()
 
-print(df1)
+df.groupby(["group", "Live"]).size().reset_index(name="time")
+print(df)
 #st.dataframe(df)
