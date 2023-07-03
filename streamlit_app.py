@@ -2,7 +2,7 @@ from collections import namedtuple
 import altair as alt
 import pandas as pd
 import streamlit as st
-import plotly.graph_objects as go
+
 
 
 data = {'group':['v', 'b', 'o','b','v','o','b','v','b','o','v', 'b', 'o','b','v','o','b','v','b','o','v', 'b', 'o','b','v','o','b','v','b','o','v', 'b', 'o','b','v','o','b','v','b','o','b', 'o','b','v','o','b','v','b','o'],
