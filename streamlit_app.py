@@ -1,16 +1,26 @@
-from collections import namedtuple
-import altair as alt
+import plotly.express as px
 import pandas as pd
 import streamlit as st
 
+data = {
+    'YUY': [2, 8, 4, 0, 1, 2, 0],
+    'L': [24, 79, 18, 0, 1, 35, 6],
+    'O': [80, 692, 60, 5, 4, 76, 26]
+}
 
+df = pd.DataFrame(data)
+df.index = ['A一个人住', 'B与肉体家人合住', 'C与外邦和猪', 'D与GF果子和猪', 'E与冬园物料合住', 'F与圣徒家人合住', 'G其他']
+st.dataframe(df)
 
-data = {'group':['v','b','o','b','v','o','b','v','b','o','v', 'b','o','b','v','o','b','v','b','o','v', 'b','o','b','v','o','b','v','b','o','v','b','o','b','v','o','b','v','b','o','b','o','b','v','o','b','v','b','o','o','b'],
-        'Live': ['A','A','C','B','A','C','B','A','B','A','A','C', 'B','A','C','B','A','B','A','B','C', 'B','A','C','B','A','B','A','A','C','A','C','B','A','B','A','B','C','B','A','C','B','A','B','A','A','C','B','A','C','B'] }
-df= pd.DataFrame(data)
-# print(df)
+cols = st.columns([1, 1])
+with cols[0]:
+    team_type = st.selectbox('球队', ['YUY', 'L', 'O'])
 
+    fig = px.pie(df, values=team_type, names=['A一个人住', 'B与肉体家人合住', 'C与外邦和猪', 'D与GF果子和猪', 'E与冬园物料合住', 'F与圣徒家人合住', 'G其他'],
+                 title=f' {team_type} 队居住情况',
+                 height=300, width=200)
+    fig.update_layout(margin=dict(l=20, r=20, t=30, b=0), )
+    st.plotly_chart(fig, use_container_width=True)
 
-df.groupby(["group", "Live"]).size().reset_index(name="time")
-print(df)
-#st.dataframe(df)
+with cols[1]:
+   st.bar_chart(df)
