@@ -19,7 +19,7 @@ df.index = ['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 
 st.dataframe(df)
 st.divider()
 #Chart 1:
-st.head('各单位居住状况饼图')
+st.header('各单位居住状况饼图')
 team_type = st.selectbox('Please select the team to show:', ['YUY', 'L', 'O', 'V', 'DY', 'HGY', 'LYH', 'NN', 'YY'])
 
 fig = px.pie(df, values=team_type, names=['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G 与STJR合Z'],
@@ -30,5 +30,5 @@ st.plotly_chart(fig, use_container_width=True)
 
 #Chart 2:
 st.divider()
-st.head('各个单位在每个选项上的柱状对比图')
+st.header('各个单位在每个选项上的柱状对比图')
 st.bar_chart(df)
