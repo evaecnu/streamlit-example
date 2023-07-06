@@ -18,9 +18,8 @@ df = pd.DataFrame(data)
 df.index = ['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G 与STJR合Z']
 st.dataframe(df)
 
-# cols = st.columns([1, 1])
-# with cols[0]:
-team_type = st.selectbox('球队', ['YUY', 'L', 'O', 'V', 'DY', 'HGY', 'LYH', 'NN', 'YY'])
+#Chart 1:
+team_type = st.selectbox('Please select the team to show:', ['YUY', 'L', 'O', 'V', 'DY', 'HGY', 'LYH', 'NN', 'YY'])
 
 fig = px.pie(df, values=team_type, names=['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G 与STJR合Z'],
             title=f' {team_type} 队居住情况',
@@ -28,5 +27,6 @@ fig = px.pie(df, values=team_type, names=['A Live Alone', 'B 与RTJR合Z', 'C �
 fig.update_layout(margin=dict(l=20, r=20, t=30, b=0), )
 st.plotly_chart(fig, use_container_width=True)
 
-# with cols[1]:
+#Chart 2:
+st.divider()
 st.bar_chart(df)
