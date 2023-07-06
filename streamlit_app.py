@@ -15,14 +15,14 @@ data = {
 }
 
 df = pd.DataFrame(data)
-df.index = ['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G 与STJR合Z']
+df.index = ['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G other']
 st.dataframe(df)
 st.divider()
 #Chart 1:
 st.subheader('各单位居住状况饼图')
 team_type = st.selectbox('Please select the team to show:', ['YUY', 'L', 'O', 'V', 'DY', 'HGY', 'LYH', 'NN', 'YY'])
 
-fig = px.pie(df, values=team_type, names=['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G 与STJR合Z'],
+fig = px.pie(df, values=team_type, names=['A Live Alone', 'B 与RTJR合Z', 'C 与WB合Z', 'D 与GFGG合Z', 'E 与DYWL合Z', 'F 与STJR合Z', 'G other'],
             title=f' {team_type} 队居住情况',
             height=300, width=200)
 fig.update_layout(margin=dict(l=20, r=20, t=30, b=0), )
